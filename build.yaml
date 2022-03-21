@@ -13,5 +13,5 @@
 #
 ---
 include:
-  - board: holyiot
+  - board: ffkb-holyiot
     shield: ffkb-holyiot

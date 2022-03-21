@@ -3,7 +3,6 @@ id: ffkb-holyiot
 name: ffkb-holyiot
 type: shield
 url: https://github.com/sadekbaroudi/ffkb/
-requires: [pro_micro]
 features:
   - keys
   - encoder
