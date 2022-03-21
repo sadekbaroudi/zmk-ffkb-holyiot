@@ -23,7 +23,7 @@
     leds {
         compatible = "gpio-leds";
         blue_led: led_0 {
-            gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+            gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
             label = "Blue LED";
         };
     };
@@ -40,8 +40,8 @@
     encoder_1: encoder_1 {
         compatible = "alps,ec11";
         label = "Encoder 1";
-        a-gpios = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         resolution = <4>;
         status = "okay";
     };
@@ -50,8 +50,8 @@
     encoder_2: encoder_2 {
         compatible = "alps,ec11";
         label = "Encoder 2";
-        a-gpios = <&gpio1 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         resolution = <4>;
         status = "okay";
     };
@@ -60,8 +60,8 @@
     encoder_3: encoder_3 {
         compatible = "alps,ec11";
         label = "Encoder 3";
-        a-gpios = <&gpio1 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 23 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         resolution = <4>;
         status = "okay";
     };
@@ -77,25 +77,25 @@
         diode-direction = "col2row";
 
         col-gpios
-            = <&gpio1 33 (GPIO_ACTIVE_HIGH)> // col 0
-            , <&gpio0 27 (GPIO_ACTIVE_HIGH)> // col 1
-            , <&gpio1 29 (GPIO_ACTIVE_HIGH)> // col 2
-            , <&gpio0 28 (GPIO_ACTIVE_HIGH)> // col 3
-            , <&gpio0 30 (GPIO_ACTIVE_HIGH)> // col 4
-            , <&gpio0 26 (GPIO_ACTIVE_HIGH)> // col 5
-            , <&gpio0 3  (GPIO_ACTIVE_HIGH)> // col 6
-            , <&gpio0 4  (GPIO_ACTIVE_HIGH)> // col 7
-            , <&gpio1 9  (GPIO_ACTIVE_HIGH)> // col 8
-            , <&gpio0 6  (GPIO_ACTIVE_HIGH)> // col 9
-            , <&gpio0 5  (GPIO_ACTIVE_HIGH)> // col 10
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH)> // col 11
+            = <&gpio1 4  (GPIO_ACTIVE_HIGH)> // col 0
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH)> // col 1
+            , <&gpio1 1  (GPIO_ACTIVE_HIGH)> // col 2
+            , <&gpio1 3  (GPIO_ACTIVE_HIGH)> // col 3
+            , <&gpio1 2  (GPIO_ACTIVE_HIGH)> // col 4
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH)> // col 5
+            , <&gpio1 10 (GPIO_ACTIVE_HIGH)> // col 6
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH)> // col 7
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH)> // col 8
+            , <&gpio0 3  (GPIO_ACTIVE_HIGH)> // col 9
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH)> // col 10
+            , <&gpio0 30 (GPIO_ACTIVE_HIGH)> // col 11
             ;
 
         row-gpios
-            = <&gpio1 35 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 0
-            , <&gpio1 34 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 1
-            , <&gpio1 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 2
-            , <&gpio1 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 3
+            = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 0
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 1
+            , <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 2
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row 3
             ;
     };
 
@@ -172,7 +172,7 @@
     // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
     sck-pin = <7>;
     miso-pin = <8>;
-    cs-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+    cs-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
 
    led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
