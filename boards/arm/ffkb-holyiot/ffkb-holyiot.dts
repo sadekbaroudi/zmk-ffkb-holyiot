@@ -113,31 +113,32 @@
     };
 };
 
-/ {
-    &spi0 {
-        compatible = "nordic,nrf-spim";
-        status = "okay";
-        mosi-pin = <13>; // was 5 in zaphod, 6 in ffkb byo-mcu
-        // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
-        sck-pin = <7>;
-        miso-pin = <8>;
-        cs-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
 
-       led_strip: ws2812@0 {
-            compatible = "worldsemi,ws2812-spi";
-            label = "SK6812minie";
+&spi0 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    mosi-pin = <13>; // was 5 in zaphod, 6 in ffkb byo-mcu
+    // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
+    sck-pin = <7>;
+    miso-pin = <8>;
+    cs-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
 
-            /* SPI */
-            reg = <0>; /* ignored, but necessary for SPI bindings */
-            spi-max-frequency = <4000000>;
+   led_strip: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+        label = "SK6812minie";
 
-            /* WS2812 */
-            chain-length = <42>;
-            spi-one-frame = <0x70>;
-            spi-zero-frame = <0x40>;
-        };
+        /* SPI */
+        reg = <0>; /* ignored, but necessary for SPI bindings */
+        spi-max-frequency = <4000000>;
+
+        /* WS2812 */
+        chain-length = <42>;
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
     };
+};
 
+/ {
     chosen {
         zmk,underglow = &led_strip;
     };
