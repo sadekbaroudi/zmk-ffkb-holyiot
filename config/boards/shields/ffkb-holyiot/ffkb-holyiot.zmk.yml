@@ -1,8 +1,0 @@
-file_format: "1"
-id: ffkb-holyiot
-name: ffkb-holyiot
-type: shield
-url: https://github.com/sadekbaroudi/ffkb/
-features:
-  - keys
-  - encoder
