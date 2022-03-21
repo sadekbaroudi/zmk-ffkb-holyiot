@@ -9,8 +9,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    model = "ffkb-holyiot";
-    compatible = "fingerpunch,ffkb-holyiot"
+    //model = "ffkb-holyiot";
+    //compatible = "fingerpunch,ffkb-holyiot"
 
     chosen {
 //        zephyr,code-partition = &code_partition;
